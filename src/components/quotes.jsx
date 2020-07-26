@@ -4,9 +4,10 @@ const quotes = [
   "camaron que se duerme se lo lleva la corriente",
   "arbol que nace torcido jamas su rama endereza",
   "a muchacho barrigon ni que lo fajen chiquito",
+  "Almost before we knew it, we had left the ground."
 ];
 function Quotes() {
-  const [counter, setCounter] = useState(2);
+  const [counter, setCounter] = useState(3);
   return (
     <div>
       <h1 onClick={(event) => setCounter(counter + 1)}>
