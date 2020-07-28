@@ -5,9 +5,9 @@ const [cuenta, setCuenta] = useState(0);
 
     return(
         <div>
-            <h1>{cuenta}</h1>
+            <h1>{Math.round(cuenta)}</h1>
             <button
-            onClick={(event) => setCuenta(cuenta + Math.random())}
+            onClick={(event) => setCuenta(cuenta + Math.floor(Math.random()*10)) }
             >HIT ME!</button>
         </div>
     )
