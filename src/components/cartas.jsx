@@ -7,14 +7,18 @@ const carta = [
 ]
 
 function Cartas() {
-    const [cartas, setCarta] = useState('')
+    const [cartas, setCarta] = useState('');
+    const [suma, setSuma] =useState('');
     console.log(cartas);
     return(
         <div>
             <h2>{cartas}</h2>
-            <h1>Suma: {cartas}</h1>
+            <h1
+            onChange={e => setSuma()}
+            >Suma: {suma}</h1>
             <button
             onClick={(event) => setCarta(carta[Math.floor(Math.random()*52)])}
+            
             >random</button>
         </div>
     )
