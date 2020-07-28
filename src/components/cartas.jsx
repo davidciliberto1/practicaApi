@@ -6,21 +6,31 @@ const carta = [
      '2d', '3d', '4d', '5d', '6d', '7d', '8d', '9d', '10d', 'jd', 'qd', 'kd', 'ad',
 ]
 
+
+
 function Cartas() {
     const [cartas, setCarta] = useState('');
     const [suma, setSuma] =useState('');
-    console.log(cartas);
+    console.log(suma);
+    function handleChange(e) {
+        return (
+        cartas + suma
+        )
+        
+       
+    }
 
     return(
         <div>
             <h2>{cartas}</h2>
-            <h1
-            
-            >Suma: {suma}</h1>
+           
             <button
             onClick={(event) => setCarta(carta[Math.floor(Math.random()*52)])}
             
             >random</button>
+             <h1
+            onSubmit={(event) => setSuma(event.target.value + cartas)}
+            >Suma: {suma}</h1>
             
         </div>
     )
