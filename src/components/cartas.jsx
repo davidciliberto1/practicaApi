@@ -9,7 +9,7 @@ const cartas = [
 
 
 function Cartas() {
-    const [carta, setCarta] = useState('');
+    const [carta, setCarta] = useState([]);
     console.log(carta);
 
 
