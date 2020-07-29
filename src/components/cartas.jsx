@@ -1,30 +1,95 @@
-import React, { useState } from 'react'
-const cartas = [
-     '2t', '3t', '4t', '5t', '6t', '7t', '8t', '9t', '10t', 'jt', 'qt', 'kt', 'at',
-     '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '10p', 'jp', 'qp', 'kp', 'ap',
-     '2c', '3c', '4c', '5c', '6c', '7c', '8c', '9c', '10c', 'jc', 'qc', 'kc', 'ac',
-     '2d', '3d', '4d', '5d', '6d', '7d', '8d', '9d', '10d', 'jd', 'qd', 'kd', 'ad',
-]
+import React, { useState } from "react";
+//TODO crear dinamicamente, con un map adentro de otro
+//(palos.map(palo => valores.map(valor => ... )))
+//[[][][][]] (usar reduce ? )
+const mazo = [
+  { valor: "2", palo: "t" },
+  { valor: "3", palo: "t" },
+  { valor: "4", palo: "t" },
+  { valor: "5", palo: "t" },
+  { valor: "6", palo: "t" },
+  { valor: "7", palo: "t" },
+  { valor: "8", palo: "t" },
+  { valor: "9", palo: "t" },
+  { valor: "10", palo: "t" },
+  { valor: "j", palo: "t" },
+  { valor: "q", palo: "t" },
+  { valor: "k", palo: "t" },
+  { valor: "a", palo: "t" },
+  { valor: "2", palo: "p" },
+  { valor: "3", palo: "p" },
+  { valor: "4", palo: "p" },
+  { valor: "5", palo: "p" },
+  { valor: "6", palo: "p" },
+  { valor: "7", palo: "p" },
+  { valor: "8", palo: "p" },
+  { valor: "9", palo: "p" },
+  { valor: "10", palo: "p" },
+  { valor: "j", palo: "p" },
+  { valor: "q", palo: "p" },
+  { valor: "k", palo: "p" },
+  { valor: "a", palo: "p" },
+  { valor: "2", palo: "c" },
+  { valor: "3", palo: "c" },
+  { valor: "4", palo: "c" },
+  { valor: "5", palo: "c" },
+  { valor: "6", palo: "c" },
+  { valor: "7", palo: "c" },
+  { valor: "8", palo: "c" },
+  { valor: "9", palo: "c" },
+  { valor: "10", palo: "c" },
+  { valor: "j", palo: "c" },
+  { valor: "q", palo: "c" },
+  { valor: "k", palo: "c" },
+  { valor: "a", palo: "c" },
+  { valor: "2", palo: "d" },
+  { valor: "3", palo: "d" },
+  { valor: "4", palo: "d" },
+  { valor: "5", palo: "d" },
+  { valor: "6", palo: "d" },
+  { valor: "7", palo: "d" },
+  { valor: "8", palo: "d" },
+  { valor: "9", palo: "d" },
+  { valor: "10", palo: "d" },
+  { valor: "j", palo: "d" },
+  { valor: "q", palo: "d" },
+  { valor: "k", palo: "d" },
+  { valor: "a", palo: "d" },
+];
 
-
+function sacarCartaDeMazo() {
+  return mazo[Math.floor(Math.random() * mazo.length)];
+}
 
 function Cartas() {
-    const [carta, setCarta] = useState([]);
-    console.log(carta);
+  const [mano, setMano] = useState();
+  const [cartaNueva, setCartaNueva] = useState();
 
+//   function calcularValorDeMano() {
+//     const noAses= mano.filter(TodasMesnoAs)
+//     const ases= mano.filter(SoloAses)
+// const suma = noAses.reduce(sumar usando CalcularValorDeCarta)
+// const sumaFinal = ases.map(as => calcularValorDeAs(as, valorDeLaManoSinAses))
+// }
 
-    return(
-        <div>
-            <h2>{carta}</h2>
-           
-            <button
-            onClick={(event) => cartas.pop(setCarta(cartas[Math.floor(Math.random()*52)]))}
-            
-            >random</button>
-           
-            
-        </div>
-    )
-    
+// function calcularValorDeAs(carta, valorDeLaManoSinAses) {}
+// function calcularValorDeCarta(carta) {}
+// const filtradas =  [1,2,3,4,5].filter(e => e> 2); // filtradas == [1,2]
+  return (
+    <div>
+      <h2>{JSON.stringify(mano)}</h2>
+      {/* <h2>{calcularValorDeMano()}</h2> */}
+      <button onClick={(event) => {
+let cartas = [sacarCartaDeMazo(), sacarCartaDeMazo()];
+
+          setMano(cartas);
+      }}>Repartir</button>
+      <button
+        onClick={(event) => setCartaNueva(sacarCartaDeMazo())}
+      >
+        random
+      </button>
+    </div>
+  );
 }
 export default Cartas;
