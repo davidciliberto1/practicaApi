@@ -61,6 +61,10 @@ function sacarCartaDeMazo() {
   return mazo[Math.floor(Math.random() * mazo.length)];
 }
 
+function nuevaCartaALaMano() {
+  return (sacarCartaDeMazo())
+}
+
 function Cartas() {
   const [mano, setMano] = useState();
   const [cartaNueva, setCartaNueva] = useState();
@@ -85,7 +89,8 @@ let cartas = [sacarCartaDeMazo(), sacarCartaDeMazo()];
           setMano(cartas);
       }}>Repartir</button>
       <button
-        onClick={(event) => setCartaNueva(sacarCartaDeMazo())}
+        onClick={(event) => {   }}
+        
       >
         random
       </button>
