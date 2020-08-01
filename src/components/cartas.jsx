@@ -62,7 +62,7 @@ function sacarCartaDeMazo() {
 }
 
 function nuevaCartaALaMano() {
-  return (sacarCartaDeMazo())
+  return sacarCartaDeMazo(mazo)
 }
 
 function Cartas() {
@@ -81,7 +81,7 @@ function Cartas() {
 // const filtradas =  [1,2,3,4,5].filter(e => e> 2); // filtradas == [1,2]
   return (
     <div>
-      <h2>{JSON.stringify(mano)}</h2>
+      <h2>{JSON.stringify(mano)}{JSON.stringify(cartaNueva)}</h2>
       {/* <h2>{calcularValorDeMano()}</h2> */}
       <button onClick={(event) => {
 let cartas = [sacarCartaDeMazo(), sacarCartaDeMazo()];
@@ -89,7 +89,11 @@ let cartas = [sacarCartaDeMazo(), sacarCartaDeMazo()];
           setMano(cartas);
       }}>Repartir</button>
       <button
-        onClick={(event) => {   }}
+        onClick={(event) => {  
+          let cartaNueva = [nuevaCartaALaMano()]
+          setCartaNueva(cartaNueva);
+           
+         }}
         
       >
         random
